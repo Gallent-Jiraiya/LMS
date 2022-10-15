@@ -2,7 +2,7 @@ package com.group7.lms.service;
 
 import com.group7.lms.dto.CourseDTO;
 import com.group7.lms.entity.Course;
-import com.group7.lms.exception.CourseNotFoundException;
+import com.group7.lms.exception.ItemNotFoundException;
 import com.group7.lms.repo.CourseRepo;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -33,18 +33,17 @@ public class CourseService {
         List<Course> courseList=courseRepo.findAll();
         return ResponseEntity.ok(modelMapper.map(courseList,new TypeToken<List<CourseDTO>>(){}.getType()));
     }
-    public ResponseEntity<CourseDTO> selectCourseById(String id) throws CourseNotFoundException {
+    public ResponseEntity<CourseDTO> selectCourseById(String id) throws ItemNotFoundException{
         Course course=courseRepo.getCourseById(id);
         if(course !=null){
             CourseDTO courseDTO=modelMapper.map(course,CourseDTO.class);
             return ResponseEntity.ok(courseDTO);
         }
         else{
-            throw new CourseNotFoundException("Course do not exist with id :"+id);
+            throw new ItemNotFoundException("Course do not exist with id :"+id);
         }
-
     }
-    public boolean deleteUser(CourseDTO userDTO){
+    public boolean deleteCourse(CourseDTO userDTO){
         courseRepo.delete(modelMapper.map(userDTO,Course.class));
         return true;
     }

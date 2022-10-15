@@ -1,7 +1,7 @@
 package com.group7.lms.controller;
 
 import com.group7.lms.dto.CourseDTO;
-import com.group7.lms.exception.CourseNotFoundException;
+import com.group7.lms.exception.ItemNotFoundException;
 import com.group7.lms.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/v1/course")
+@RequestMapping(value = "api/v2/course")
 @CrossOrigin
 public class CourseController {
     @Autowired
@@ -22,7 +22,7 @@ public class CourseController {
         return courseService.selectAllCourses();
     }
     @GetMapping("/getCourseById/{Id}")
-    public ResponseEntity<CourseDTO> getCourseById(@PathVariable String Id) throws CourseNotFoundException {
+    public ResponseEntity<CourseDTO> getCourseById(@PathVariable String Id) throws ItemNotFoundException {
         return courseService.selectCourseById(Id);
     }
     @PostMapping("/saveCourse")
@@ -33,9 +33,9 @@ public class CourseController {
     public ResponseEntity<CourseDTO> updateCourse(@RequestBody @Valid CourseDTO courseDTO){
         return courseService.updateCourse(courseDTO);
     }
-    @DeleteMapping("/deleteUser")
-    public boolean deleteUser(@RequestBody CourseDTO userDTO) {
-        return courseService.deleteUser(userDTO);
+    @DeleteMapping("/deleteCourse")
+    public boolean deleteCourse(@RequestBody CourseDTO userDTO) {
+        return courseService.deleteCourse(userDTO);
     }
 }
 
