@@ -2,6 +2,8 @@ package com.group7.lms.utility;
 
 
 
+import com.group7.lms.security.UserDetails;
+
 import io.jsonwebtoken.Claims;
 
 //@Component
@@ -15,6 +17,30 @@ public class JwtUtility {
 	   
 
 		private String getClaimFromToken(String token, Object object) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
+
+		public String getUsernameFromToken1(String jwtToken) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
+
+		public boolean validateToken(String jwtToken, UserDetails userDetails) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+
+
+
+		public String getUsernameFromToken(String jwtToken) {
 			// TODO Auto-generated method stub
 			return null;
 		}
