@@ -45,18 +45,18 @@ public class JwtRequestFilter {
             System.out.println("JWT token does not start with Bearer");
         }
 
-        if (email != null && ((Object) SecurityContextHolder.getContext()).getAuthentication() == null) {
-
-            UserDetails userDetails = appUserService.loadUserByUsername(email);
-
-            if (jwtUtility.validateToken(jwtToken, userDetails)) {
-
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken();
-                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                ((Object) SecurityContextHolder.getContext()).setAuthentication(usernamePasswordAuthenticationToken);
-            }
-        }
-        filterChain.doFilter(request, response);
-
+//        if (email != null && ((Object) SecurityContextHolder.getContext()).getAuthentication() == null) {
+//
+//            UserDetails userDetails = appUserService.loadUserByUsername(email);
+//
+//            if (jwtUtility.validateToken(jwtToken, userDetails)) {
+//
+//                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken();
+//                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                ((Object) SecurityContextHolder.getContext()).setAuthentication(usernamePasswordAuthenticationToken);
+//            }
+//        }
+//        filterChain.doFilter(request, response);
+//
     }
 }
