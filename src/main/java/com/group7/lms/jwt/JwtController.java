@@ -1,6 +1,6 @@
 package com.group7.lms.jwt;
 
-//import com.example.backend.appuser.AppUserService;
+import com.group7.lms.appuser.AppUserService;
 //import com.example.backend.jwt.model.JwtRequest;
 //import com.example.backend.jwt.model.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class JwtController {
 
-//	 @Autowired
-//	    private AppUserService jwtService;
+	 @Autowired
+	    private AppUserService jwtService;
 	 
 
 //	    @PostMapping({"/authenticate"})
